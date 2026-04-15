@@ -1,6 +1,26 @@
 # 政务局黑名单信息对比客户端
+## 项目结构
 
-跨平台 Python 桌面客户端，用于批量处理 ZJPV 待校验文件，调用生存认证接口比对人员状态，并输出仅包含已故人员的 ZJPC 文件。
+```
+alive-check-client/
+├── main.py                 # 主程序入口
+├── requirements.txt        # 依赖列表
+├── src/
+│   ├── core/               # 核心模块
+│   │   ├── api_client.py   # 接口调用客户端
+│   │   ├── config_manager.py # 配置管理
+│   │   ├── crypto.py       # SM3/SM4加密
+│   │   ├── file_parser.py  # ZJPV/ZJPC解析
+│   │   └── processor.py    # 批量处理
+│   ├── gui/                # GUI界面
+│   │   ├── app.py          # 主窗口
+│   │   ├── config_panel.py # 配置面板
+│   │   ├── process_panel.py # 处理面板
+│   │   └── result_dialog.py # 结果对话框
+│   └── utils/
+│       └── logger.py       # 日志记录
+└── README.md
+```
 
 ## 功能特性
 
@@ -14,7 +34,7 @@
 ## 运行要求
 
 - Python 3.9+
-- 已启动生存认证后端服务（Spring Boot）
+- 已启动生存认证模拟服务端（Spring Boot）
 
 ## 安装依赖
 
@@ -223,38 +243,6 @@ sign_data = app_secret + encrypt_data  # 可能需要加入其他参数
 
 ---
 
-## 文档生成
 
-项目技术文档通过 `tools/generate_tech_doc.py` 生成，正式输出路径为：
 
-`../../../5、开发相关文档/技术文档/政务局黑名单信息对比客户端技术文档.docx`
 
-生成命令：
-
-```bash
-python3 -m pip install python-docx
-python3 tools/generate_tech_doc.py
-```
-
-## 项目结构
-
-```
-alive-check-client/
-├── main.py                 # 主程序入口
-├── requirements.txt        # 依赖列表
-├── src/
-│   ├── core/               # 核心模块
-│   │   ├── api_client.py   # 接口调用客户端
-│   │   ├── config_manager.py # 配置管理
-│   │   ├── crypto.py       # SM3/SM4加密
-│   │   ├── file_parser.py  # ZJPV/ZJPC解析
-│   │   └── processor.py    # 批量处理
-│   ├── gui/                # GUI界面
-│   │   ├── app.py          # 主窗口
-│   │   ├── config_panel.py # 配置面板
-│   │   ├── process_panel.py # 处理面板
-│   │   └── result_dialog.py # 结果对话框
-│   └── utils/
-│       └── logger.py       # 日志记录
-└── README.md
-```
