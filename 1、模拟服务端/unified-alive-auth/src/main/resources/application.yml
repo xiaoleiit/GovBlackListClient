@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: unified-alive-auth
+
+# 应用配置
+app:
+  apps:
+    - appId: APP001
+      appSecret: secret001abcdef
+      appName: 测试应用1
+    - appId: APP002
+      appSecret: secret002abcdef
+      appName: 测试应用2
+    - appId: testApp
+      appSecret: 3c4f6a71e4527229
+      appName: 文档示例应用
